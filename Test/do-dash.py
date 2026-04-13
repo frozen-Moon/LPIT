@@ -5,10 +5,10 @@ import polars as pl
 from dash import Dash, dcc, html, Input, Output
 import plotly.graph_objects as go
 
-# First run sim-live-data.py to create the data_live.txt live file
+# First run sim-live-data.py to create the data_source_live.txt live file
 
-version = "1.01"
-data_file = "data_live.txt"
+version = "1.02"
+data_file = "data_source_live.txt"
 
 n_cols = 10  # Number of columns in each data row
 agg_period = 5  # Number of rows to perform aggregation
