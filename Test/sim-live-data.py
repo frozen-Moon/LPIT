@@ -87,8 +87,5 @@ def main():
             else:
                 print("... script finished")
 
-                
-                
-
 if __name__ == "__main__":
     main()
