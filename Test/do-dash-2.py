@@ -16,7 +16,7 @@ import dash_ag_grid as dag
 # https://dash.plotly.com/dash-ag-grid/column-definitions
 # https://dash.plotly.com/dash-core-components/graph
 
-version = "1.00"
+version = "1.01"
 data_file = "data_source_live.txt"
 
 n_cols = 10  # Number of columns in each data row
@@ -144,7 +144,7 @@ app.layout = html.Div([
         columnDefs=[{"field": i, "type": "rightAligned"} for i in agg_df.columns],
         rowData = [{j: vector_list[i] for i, j in enumerate(agg_df.columns)}]
     ),
-    # Graph with latest 10 mean values
+    # Bar graph with latest 10 mean values
     dcc.Graph(id="live-graph"),
     dcc.Interval(id="interval", interval=5000, n_intervals=0),
 ])
@@ -162,10 +162,9 @@ app.layout = html.Div([
 def update_data(n):
     fig = go.Figure()
     fig.add_trace(
-        go.Scatter(
+        go.Bar(
             x=list(range(10)),
             y=vector_list,
-            mode="lines+markers",
         )
     )
     fig.update_layout(
